@@ -1,0 +1,3 @@
+# Configuración de Telegram
+TELEGRAM_TOKEN = "8460297937:AAHw-e9fbaoagM4BMAY5LTBOz1JPX_BPvVw"
+TELEGRAM_CHAT_ID = "991"

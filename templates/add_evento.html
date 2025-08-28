@@ -1,40 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Añadir Evento</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container my-4">
-  <h1 class="mb-4 text-center">➕ Añadir Evento</h1>
-
-  <form action="{{ url_for('add_evento') }}" method="post" class="mx-auto" style="max-width: 500px;">
-    <div class="mb-3">
-      <label class="form-label">Título</label>
-      <input type="text" name="titulo" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Fecha</label>
-      <input type="date" name="fecha" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Hora</label>
-      <input type="time" name="hora" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Horas antes para aviso</label>
-      <input type="number" name="aviso_horas" class="form-control" min="1" value="1" required>
-    </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-success">💾 Guardar</button>
-      <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅ Volver</a>
-    </div>
-  </form>
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h4 class="card-title mb-4">➕ Añadir Evento</h4>
+    <form method="post">
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" required>
+      </div>
+      <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha y hora</label>
+        <input type="datetime-local" class="form-control" id="fecha" name="fecha" required>
+      </div>
+      <div class="mb-3">
+        <label for="aviso_horas" class="form-label">Avisar con (horas antes)</label>
+        <input type="number" class="form-control" id="aviso_horas" name="aviso_horas" min="1" value="1" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% endblock %}
+
+
 
 
